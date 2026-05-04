@@ -2,6 +2,9 @@ package com.cg.frontend.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.time.LocalDateTime;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EmployeeDto {
@@ -13,7 +16,9 @@ public class EmployeeDto {
     private Short jobId;
     private Integer jobLvl;
     private String pubId;
-    private String hireDate;
+
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    private LocalDateTime hireDate;
 
     public EmployeeDto() {}
 
@@ -38,22 +43,27 @@ public class EmployeeDto {
     public String getPubId() { return pubId; }
     public void setPubId(String pubId) { this.pubId = pubId; }
 
-    public String getHireDate() { return hireDate; }
-    public void setHireDate(String hireDate) { this.hireDate = hireDate; }
+    public LocalDateTime getHireDate() { return hireDate; }
+    public void setHireDate(LocalDateTime hireDate) { this.hireDate = hireDate; }
 
     @JsonIgnore
     public String getFullName() {
-        StringBuilder sb = new StringBuilder();
-        if (fname != null) sb.append(fname);
-        if (minit != null && !minit.isBlank()) sb.append(" ").append(minit).append(".");
-        if (lname != null) sb.append(" ").append(lname);
-        return sb.toString().trim();
+        String full = (fname != null ? fname : "");
+        if (minit != null && !minit.isBlank()) full += " " + minit + ".";
+        full += " " + (lname != null ? lname : "");
+        return full.trim();
     }
 
     @JsonIgnore
-    public String getInitials() {
-        String f = (fname != null && !fname.isBlank()) ? fname.substring(0, 1).toUpperCase() : "";
-        String l = (lname != null && !lname.isBlank()) ? lname.substring(0, 1).toUpperCase() : "";
-        return f + l;
+    public String getHireDateFormatted() {
+        if (hireDate == null) return "—";
+        return hireDate.toLocalDate().toString();
+    }
+
+    @JsonIgnore
+    public String getHireDateTimeForInput() {
+        if (hireDate == null) return "";
+        // Format for datetime-local input: yyyy-MM-ddTHH:mm
+        return hireDate.toString().substring(0, 16);
     }
 }
