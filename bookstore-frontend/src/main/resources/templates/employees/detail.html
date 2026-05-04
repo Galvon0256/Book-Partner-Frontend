@@ -217,29 +217,8 @@
         </div>
     </div>
 
-    <!-- REST Endpoints Used -->
-    <div class="detail-card mt-4">
-        <div class="p-4 border-bottom">
-            <h6 class="fw-bold mb-0"><i class="bi bi-code-slash me-2"></i>REST Endpoints Used on This Page</h6>
-        </div>
-        <div class="p-4">
-            <div class="d-flex align-items-center gap-2 mb-2">
-                <span class="badge" style="background:#EAF3DE;color:#27500A;font-family:monospace">GET</span>
-                <code class="small text-muted" th:text="'/api/employees/' + ${employee.empId}">—</code>
-                <span class="text-muted small">— Fetch employee detail</span>
-            </div>
-            <div class="d-flex align-items-center gap-2 mb-2" th:if="${employee.jobId != null}">
-                <span class="badge" style="background:#EAF3DE;color:#27500A;font-family:monospace">GET</span>
-                <code class="small text-muted" th:text="'/api/jobs/' + ${employee.jobId}">—</code>
-                <span class="text-muted small">— Fetch job description</span>
-            </div>
-            <div class="d-flex align-items-center gap-2" th:if="${employee.pubId != null}">
-                <span class="badge" style="background:#EAF3DE;color:#27500A;font-family:monospace">GET</span>
-                <code class="small text-muted" th:text="'/api/publishers/' + ${employee.pubId}">—</code>
-                <span class="text-muted small">— Fetch publisher details</span>
-            </div>
-        </div>
-    </div>
+   
+   
 </div>
 
 <div th:replace="~{fragments/footer :: footer}"></div>
