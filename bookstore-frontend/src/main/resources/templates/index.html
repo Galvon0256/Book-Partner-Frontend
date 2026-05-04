@@ -143,12 +143,6 @@
                 </a>
             </div>
             <div class="col-md-4 col-lg-3">
-                <!-- <div class="member-card disabled" style="--card-color:#2563EB">
-                <div class="avatar" style="background:#EFF6FF;color:#2563EB">KA</div>
-                <div class="member-name">Kartik</div>
-                <div class="member-module">Publishers Module</div>
-                <div class="module-badge" style="background:#EFF6FF;color:#2563EB">Publishers</div>
-            </div> -->
                 <a th:href="@{/publishers}" class="member-card" style="--card-color:#2563EB">
                     <div class="avatar" style="background:#EFF6FF;color:#2563EB">KA</div>
                     <div class="member-name">Kartik</div>
@@ -165,21 +159,22 @@
                 </div>
             </div>
             <div class="col-md-4 col-lg-3">
-                <div class="member-card disabled" style="--card-color:#DC2626">
+                <a th:href="@{/stores}" class="member-card" style="--card-color:#2563EB">
                     <div class="avatar" style="background:#FEF2F2;color:#DC2626">AM</div>
                     <div class="member-name">Amritansu</div>
                     <div class="member-module">Stores Module</div>
                     <div class="module-badge" style="background:#FEF2F2;color:#DC2626">Stores</div>
-                </div>
+                </a>
             </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="member-card disabled" style="--card-color:#DB2777">
-                    <div class="avatar" style="background:#FDF2F8;color:#DB2777">SW</div>
-                    <div class="member-name">Swati</div>
-                    <div class="member-module">Employee Module</div>
-                    <div class="module-badge" style="background:#FDF2F8;color:#DB2777">Employees</div>
-                </div>
-            </div>
+			<div class="col-md-4 col-lg-3">
+			           
+					<a th:href="@{/employees}" class="member-card" style="--card-color:#DB2777">
+			               <div class="avatar" style="background:#FDF2F8;color:#DB2777">SW</div>
+			               <div class="member-name">Swati</div>
+			               <div class="member-module">Employee Module</div>
+			               <div class="module-badge" style="background:#FDF2F8;color:#DB2777">Employees</div>
+			           </a>
+			       </div>
         </div>
     </div>
 
